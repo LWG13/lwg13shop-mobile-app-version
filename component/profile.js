@@ -16,14 +16,14 @@ import { useRoute, useNavigation } from "@react-navigation/native";
 export default function Profile() {
   const route = useRoute();
   const navigation = useNavigation();
-
+  const { userId } = route.params;
   const [page, setPage] = useState(1);
 
   const { data, isLoading } = useQuery({
-    queryKey: ["user"],
+    queryKey: ["user", userId],
     queryFn: () =>
       axios
-        .get(`https://ecommerce-server-y5yv.onrender.com/user/signup/6768f2db3615369ace075e60`)
+        .get(`https://ecommerce-server-y5yv.onrender.com/user/signup/${userId}`)
         .then((res) => res.data),
   });
    
@@ -31,7 +31,7 @@ export default function Profile() {
     queryKey: ["latest"],
     queryFn: () =>
       axios
-        .get(`https://ecommerce-server-y5yv.onrender.com/product/lastest/6768f2db3615369ace075e60`)
+        .get(`https://ecommerce-server-y5yv.onrender.com/product/lastest/${userId}`)
         .then((res) => res.data),
   });
 
@@ -110,7 +110,7 @@ export default function Profile() {
               <TouchableOpacity
                 key={item._id}
                 style={styles.productItem}
-                onPress={() => navigation.navigate("ProductDetail", { id: item._id })}
+                onPress={() => navigation.navigate("ProductDetail", { productId: item._id })}
               >
                 <Image source={{ uri: item.image }} style={styles.productImg} />
 
@@ -158,7 +158,11 @@ const styles = StyleSheet.create({
   profileBox: {
     alignItems: "center",
     marginTop: 20,
+    paddingTop: 40,
+    paddingBottom: 40,
+    borderRadius: 10,
     marginBottom: 20,
+    backgroundColor: "#BF77F6"
   },
   skeletonRow: {
     flexDirection: "row",
@@ -174,7 +178,7 @@ const styles = StyleSheet.create({
   },
 
   username: {
-    color: "black",
+    color: "white",
     fontSize: 22,
     fontWeight: "bold",
   },
@@ -200,7 +204,7 @@ const styles = StyleSheet.create({
 
   activeTab: {
     borderBottomWidth: 2,
-    borderBottomColor: "black",
+    borderBottomColor: "#BF77F6",
   },
 
   activeTabText: {

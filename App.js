@@ -10,7 +10,7 @@ import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react"
 import { QueryClient, QueryClientProvider  } from "react-query"
 import MyTabBar from "./component/myTabBar";
-
+import ProductDetail from "./component/product"
 const queryClient = new QueryClient()
 const Tab = createBottomTabNavigator();
 
@@ -40,6 +40,9 @@ function Route() {
             header: () => <CustomHeader navigation={navigation} />,
           })}
         />
+        <Stack.Screen name="ProductDetail" component={ProductDetail} screenOptions={{
+            headerShown: false, 
+          }}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

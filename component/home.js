@@ -58,7 +58,7 @@ export default function Product() {
           <TouchableOpacity
             style={styles.itemBox}
             onPress={() =>
-              navigation.navigate("ProductDetail", { id: item._id })
+              navigation.navigate("ProductDetail", { productId: item._id })
             }
           >
             <Image source={{ uri: item.image }} style={styles.image} />

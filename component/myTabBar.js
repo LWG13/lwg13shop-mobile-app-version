@@ -1,5 +1,7 @@
 import { View, TouchableOpacity, Text, StyleSheet } from "react-native";
 import { useState } from "react"
+import AntDesign from '@expo/vector-icons/AntDesign'
+import Feather from '@expo/vector-icons/Feather'
 
 export default function MyTabBar({ state, descriptors, navigation }) {
   return (
@@ -9,8 +11,12 @@ export default function MyTabBar({ state, descriptors, navigation }) {
         const label = route.name;
 
         const onPress = () => {
-          navigation.navigate(route.name);
-        };
+          
+          if(route.name === "Profile" ) navigation.navigate(route.name, { userId: "6768f2db3615369ace075e60"});
+          else {
+   navigation.navigate(route.name)
+          }
+          };
 
         return (
           <TouchableOpacity
@@ -18,6 +24,9 @@ export default function MyTabBar({ state, descriptors, navigation }) {
             onPress={onPress}
             style={[styles.tabButton, isFocused && styles.activeTab]}
           >
+
+            {label ==="Profile" ? <AntDesign name="user" size={40} color="#ffecec" /> :  
+<Feather name="home" size={40} color="#ffffff" />}
             <Text style={{color: "white"}}>{label}</Text>
           </TouchableOpacity>
         );
@@ -39,6 +48,8 @@ const styles = StyleSheet.create({
   tabButton: {
     padding: 10,
     borderRadius: 10,
+    alignItems: "center",
+    textAlign: "center"
   },
   activeTab: {
     backgroundColor: "pink",
