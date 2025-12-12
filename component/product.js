@@ -36,7 +36,7 @@ export default function ProductDetail() {
 
         </TouchableOpacity>
         
-        <Text style={{color: "white"}}>Sản phấm</Text>
+        <Text style={{color: "white", fontSize: 20, fontWeight: 600}}>Sản phẩm</Text>
 
         <TouchableOpacity onPress={() => navigation.navigate("Cart")}>
           <AntDesign name="shoppingcart" size={50} color="#ffffff" />
@@ -148,11 +148,11 @@ export default function ProductDetail() {
       {/* FIXED BOTTOM */}
       <View style={styles.bottomBar}>
         <TouchableOpacity style={styles.btn1}>
-          <Text style={styles.btn1Text}>Buy Now</Text>
+          <Text style={styles.btn1Text}>Mua ngay</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.btn2}>
-          <Text style={styles.btn2Text}>Add To Cart</Text>
+          <Text style={styles.btn2Text}>Đặt vào vỏ hàng</Text>
         </TouchableOpacity>
       </View>
     </>
@@ -164,6 +164,7 @@ const styles = StyleSheet.create({
 
   header: {
     height: 80,
+    paddingTop: 30,
     backgroundColor: "#BF77F6",
     flexDirection: "row",
     justifyContent: "space-between",
@@ -266,7 +267,7 @@ itemBox: {
   btn1: {
     backgroundColor: "#BF77F6",
     paddingVertical: 15,
-    width: "45%",
+    width: "50%",
     alignItems: "center",
     borderRadius: 5
   },
@@ -276,7 +277,7 @@ itemBox: {
     borderColor: "#BF77F6",
     borderWidth: 2,
     paddingVertical: 15,
-    width: "45%",
+    width: "50%",
     alignItems: "center",
     borderRadius: 5,
     backgroundColor: "white"

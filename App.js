@@ -32,7 +32,7 @@ const Stack = createStackNavigator();
 function Route() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator  >
         <Stack.Screen
           name="home"
           component={BottomTab}
@@ -40,7 +40,7 @@ function Route() {
             header: () => <CustomHeader navigation={navigation} />,
           })}
         />
-        <Stack.Screen name="ProductDetail" component={ProductDetail} screenOptions={{
+        <Stack.Screen name="ProductDetail" component={ProductDetail} options={{
             headerShown: false, 
           }}/>
       </Stack.Navigator>
