@@ -18,6 +18,7 @@ import MyTabBar from "./component/myTabBar";
 import ProductDetail from "./component/product"
 import LoginScreen from "./component/login";
 import SignupScreen from "./component/signup";
+import Cart from "./component/cart"
 const queryClient = new QueryClient()
 const Tab = createBottomTabNavigator();
 const store = configureStore({
@@ -37,6 +38,7 @@ function BottomTab() {
     >
       <Tab.Screen name="Home" component={HomeScreen} />
       <Tab.Screen name="Profile" component={Profile} />
+      <Tab.Screen name="Cart" component={Cart} />
     </Tab.Navigator>
   );
 }

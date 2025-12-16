@@ -8,7 +8,16 @@ import {
 import axios from "axios";
 import { useRoute, useNavigation } from "@react-navigation/native";
 import { useQuery } from "react-query"
+import {
+  addToCart,
+  decreaseCart,
+  removeFromCart,
+  clearCart,
+  getTotals,
+} from "./ReduxToolkit/cartSlice";
+import { useDispatch } from "react-redux"
 export default function ProductDetail() {
+  const dispatch = useDispatch()
   const route = useRoute();
   const navigation = useNavigation();
   const { productId } = route.params;
@@ -151,7 +160,7 @@ export default function ProductDetail() {
           <Text style={styles.btn1Text}>Mua ngay</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.btn2}>
+        <TouchableOpacity style={styles.btn2} onPress={() => dispatch(addToCart(product))}>
           <Text style={styles.btn2Text}>Đặt vào vỏ hàng</Text>
         </TouchableOpacity>
       </View>

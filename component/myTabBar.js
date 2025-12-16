@@ -26,8 +26,12 @@ export default function MyTabBar({ state, descriptors, navigation }) {
             style={[styles.tabButton, isFocused && styles.activeTab]}
           >
 
-            {label ==="Profile" ? <AntDesign name="user" size={40} color="#ffecec" /> :  
-<Feather name="home" size={40} color="#ffffff" />}
+            {label ==="Profile" ? <AntDesign name="user" size={40} color="#ffecec" /> :  null}
+
+            {label ==="Home" ? 
+<Feather name="home" size={40} color="#ffffff" /> : null}
+            {label ==="Cart" ? 
+<AntDesign name="shoppingcart" size={40} color="#fffafa" /> : null}
             <Text style={{color: "white"}}>{label}</Text>
           </TouchableOpacity>
         );
