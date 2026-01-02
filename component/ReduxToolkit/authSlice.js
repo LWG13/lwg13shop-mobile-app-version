@@ -24,6 +24,7 @@ const initialState = {
   loginError: "",
   userLoaded: false,
   editedProfile: false,
+  loadingAuth: false,
   emailReset: "",
   firstAuth: false,
   secondAuth: false,
@@ -121,6 +122,7 @@ export const editProfile = createAsyncThunk(
         type: "error",
         text1: "Cập nhật thất bại",
       });
+      console.log(err.response.data)
       return rejectWithValue(err.response.data);
     }
   }
@@ -157,13 +159,18 @@ const authSlice = createSlice({
           state.token = action.payload;
           state.username = user.username;
           state.email = user.email;
+          state.loadingAuth = true
           state.phoneNumber = user.phoneNumber;
           state._id = user._id;
           state.image = user.image;
           state.desc = user.desc;
+          state.password = user.password
         }
-        state.userLoaded = true;
+        state.loadingAuth = true;
       })
+.addCase(loadUserFromStorage.pending, (state) => {
+  state.loadingAuth = true;
+})
 
       .addCase(registerUser.pending, (state) => {
         state.registerStatus = "pending";

@@ -112,7 +112,7 @@ export default function LoginScreen() {
 
         {/* REGISTER */}
         <View style={styles.register}>
-          <Text>
+          <Text style={{color: "black"}}>
             Don't have an account?{" "}
             <Text
               style={styles.link}
@@ -148,6 +148,7 @@ export default function LoginScreen() {
         fontWeight: "bold",
         textAlign: "center",
         marginBottom: 20,
+        color: "black"
       },
       inputBox: {
         position: "relative",
@@ -160,6 +161,7 @@ export default function LoginScreen() {
         height: 45,
         paddingLeft: 12,
         paddingRight: 40,
+        color: "black"
       },
       icon: {
         position: "absolute",
@@ -175,6 +177,7 @@ export default function LoginScreen() {
         textAlign: "right",
         marginVertical: 10,
         fontSize: 14,
+        color: "black"
       },
       button: {
         backgroundColor: "#BF77F6",

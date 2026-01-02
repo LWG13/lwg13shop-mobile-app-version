@@ -1,6 +1,7 @@
 import Toast from "react-native-toast-message"
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
+import { Alert } from "react-native"
 import CustomHeader from "./component/customNavigation";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import HomeScreen from "./component/home";
@@ -12,13 +13,17 @@ import cartReducer from "./component/ReduxToolkit/cartSlice"
 import { setCartFromStorage } from "./component/ReduxToolkit/cartSlice";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react"
-import { QueryClient, QueryClientProvider  } from "react-query"
+import { QueryClient, QueryClientProvider  } from "@tanstack/react-query"
 import { loadUserFromStorage } from "./component/ReduxToolkit/authSlice"
 import MyTabBar from "./component/myTabBar";
 import ProductDetail from "./component/product"
 import LoginScreen from "./component/login";
 import SignupScreen from "./component/signup";
 import Cart from "./component/cart"
+import * as SecureStore from "expo-secure-store"
+import * as Network from "expo-network";
+import SearchScreen from "./component/searchPage.js"
+
 const queryClient = new QueryClient()
 const Tab = createBottomTabNavigator();
 const store = configureStore({
@@ -58,12 +63,17 @@ function Route() {
         <Stack.Screen name="ProductDetail" component={ProductDetail} options={{
             headerShown: false, 
           }}/>
+         <Stack.Screen name="Search" component={SearchScreen} options={{
+             headerShown: false, 
+           }}/>
+
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
 function AuthRoute() {
   const auth = useSelector(state => state.auth)
+  
   return auth._id ? <Route /> : (
     <NavigationContainer>
       <Stack.Navigator  screenOptions={{
@@ -71,7 +81,7 @@ function AuthRoute() {
       }} >
         <Stack.Screen name="Login" component={LoginScreen}/>  
         <Stack.Screen name="Signup" component={SignupScreen} />
-      </Stack.Navigator>
+       </Stack.Navigator>
     </NavigationContainer>
   )
 
@@ -79,13 +89,19 @@ function AuthRoute() {
 function Splash() {
  const dispatch = useDispatch();
 const auth = useSelector((state) => state.auth);
+useEffect(() => {
+  const sub = Network.addNetworkStateListener((state) => {
+    if (!state.isConnected) {
+      Alert.alert("Mất kết nối", "Internet đã bị ngắt");
+    }
+  });
 
+  return () => sub.remove();
+}, []);
 useEffect(() => {
   SplashScreen.preventAutoHideAsync();
-
   const bootstrap = async () => {
     try {
-      // Load auth
       dispatch(loadUserFromStorage());
 
       // Load cart

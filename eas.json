@@ -1,0 +1,23 @@
+{
+  "cli": {
+    "version": ">= 3.28.3"
+  },
+  "build": {
+    "production": {
+      "env": {
+        "EXPO_USE_EXPO_GO": "false"
+      },
+      "distribution": "store",
+      "android": {
+        "buildType": "app-bundle",
+        "gradleCommand": ":app:bundleRelease"
+      }
+    },
+    "development": {
+      "distribution": "internal",
+      "android": {
+        "buildType": "apk"
+      }
+    }
+  }
+}

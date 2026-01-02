@@ -86,7 +86,7 @@ export default function Cart() {
         </Pressable>
 
         <View style={styles.subtotal}>
-          <Text>Subtotal:</Text>
+          <Text style={{color: "black"}}>Subtotal:</Text>
           <Text style={styles.amount}>${cart.cartTotalAmount}</Text>
         </View>
 
@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
 
   info: { flex: 1, marginLeft: 10 },
 
-  title: { fontSize: 16, fontWeight: "600" },
+  title: { fontSize: 16, fontWeight: "600", color: "black" },
 
   price: { color: "#BF77F6", marginVertical: 4 },
 
@@ -160,7 +160,7 @@ const styles = StyleSheet.create({
     marginVertical: 10,
   },
 
-  amount: { fontWeight: "700" },
+  amount: { fontWeight: "700", color: "black" },
 
   clear: { color: "red", marginBottom: 10 },
 

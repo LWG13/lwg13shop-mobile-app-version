@@ -1,11 +1,19 @@
 {
   "expo": {
-    "name": "app",
+    "name": "lwg13shop",
     "slug": "app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
+    "permissions": [],
+    "newArchEnabled": false,
+    "updates": {
+      "enabled": true,
+      "checkAutomatically": "ON_LOAD",
+      "fallbackToCacheTimeout": 0,
+      "url": "https://u.expo.dev/335072e2-8625-46d5-8a96-e7d6cf684a11"
+    },
     "splash": {
       "image": "./assets/icon.png",
       "resizeMode": "contain",
@@ -15,21 +23,34 @@
       "expo-splash-screen",
       "expo-secure-store"
     ],
-    "sdkVersion": "52.0.0",
+    "sdkVersion": "54.0.0",
     "assetBundlePatterns": [
       "assets/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "y",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.lwg13.app"
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/icon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "335072e2-8625-46d5-8a96-e7d6cf684a11"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
     }
   }
 }

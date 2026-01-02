@@ -7,7 +7,7 @@ import {
 } from "react-native";
 import axios from "axios";
 import { useRoute, useNavigation } from "@react-navigation/native";
-import { useQuery } from "react-query"
+import { useQuery } from "@tanstack/react-query"
 import {
   addToCart,
   decreaseCart,
@@ -206,7 +206,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10
   },
 
-  title: { fontSize: 28, fontWeight: "bold" },
+  title: { fontSize: 28, fontWeight: "bold",color: "black" },
   heart: { width: 45, height: 45 },
 
   price: {
@@ -222,8 +222,8 @@ const styles = StyleSheet.create({
     marginTop: 5
   },
 
-  label: { fontWeight: "bold", fontSize: 18 },
-  value: { marginLeft: 10, fontSize: 18 },
+  label: { fontWeight: "bold", fontSize: 18 , color: "black"},
+  value: { marginLeft: 10, fontSize: 18,color: "black" },
 
   buttonRow: {
     flexDirection: "row",
@@ -248,6 +248,7 @@ itemBox: {
   title2: {
     fontSize: 16,
     fontWeight: "600",
+    color: "black",
     marginTop: 10,
   },
 
@@ -299,7 +300,7 @@ itemBox: {
     marginTop: 20
   },
 
-  sectionTitle: { fontSize: 22, fontWeight: "bold", marginBottom: 10 },
+  sectionTitle: { fontSize: 22, fontWeight: "bold", marginBottom: 10, color: "black" },
 
   userBox: {
     flexDirection: "row",
@@ -329,13 +330,15 @@ itemBox: {
 
   featureTitle: {
     fontSize: 16,
-    marginTop: 5
+    marginTop: 5,
+    color: "black"
   },
 
   featurePrice: {
     color: "#A868D9",
     marginTop: 5,
-    fontSize: 16
+    fontSize: 16,
+    color: "black"
   },
 
   bottomBar: {

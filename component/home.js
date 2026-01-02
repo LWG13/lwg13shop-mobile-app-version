@@ -8,7 +8,7 @@ import {
   StyleSheet,
 } from "react-native";
 import axios from "axios";
-import { useQuery } from "react-query";
+import { useQuery } from "@tanstack/react-query";
 import { useNavigation } from "@react-navigation/native";
 import SkeletonBox from "./skeletonBox";
 export default function Product() {
@@ -90,6 +90,7 @@ const styles = StyleSheet.create({
     fontSize: 22,
     fontWeight: "bold",
     marginBottom: 15,
+    color: "black"
   },
 
   itemBox: {
@@ -109,6 +110,7 @@ const styles = StyleSheet.create({
 
   title: {
     fontSize: 16,
+    color: "black",
     fontWeight: "600",
     marginTop: 10,
   },

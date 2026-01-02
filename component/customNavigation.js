@@ -1,8 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
 import { Button, StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import AntDesign from '@expo/vector-icons/AntDesign'
+import { useNavigation } from "@react-navigation/native"
 
 export default function CustomHeader({children}) {
+  const navigation = useNavigation()
   return (
   <View >
     <View style={styles.container}>
@@ -10,7 +12,7 @@ export default function CustomHeader({children}) {
 
       <TouchableOpacity style={styles.button}>
 
-        <AntDesign name="search1" size={35} color="#ffffff" />
+        <AntDesign name="search1" size={35} color="#ffffff"   onPress={() => navigation.navigate("Search") }/>
       </TouchableOpacity>
     </View>
     {children}

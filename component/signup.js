@@ -169,7 +169,7 @@ export default function SignupScreen() {
 
         {/* LOGIN LINK */}
         <View style={styles.footer}>
-          <Text>
+          <Text style={{color: "black"}}>
             Already have account?{" "}
             <Text
               style={styles.link}
@@ -207,6 +207,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginBottom: 20,
     fontWeight: "bold",
+    color: "black"
   },
   inputBox: {
     marginTop: 15,
@@ -217,6 +218,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     height: 45,
     paddingHorizontal: 10,
+    color: "black"
   },
   button: {
     backgroundColor: "#BF77F6",
